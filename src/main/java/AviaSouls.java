@@ -3,11 +3,13 @@ package werv;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class AviaSouls {
-    private werv.Ticket[] tickets = new werv.Ticket[0];
+import werv.Ticket;
 
-    private werv.Ticket[] addToArray(werv.Ticket[] current, werv.Ticket ticket) {
-        werv.Ticket[] tmp = new werv.Ticket[current.length + 1];
+public class AviaSouls {
+    private Ticket[] tickets = new Ticket[0];
+
+    private Ticket[] addToArray(Ticket[] current, Ticket ticket) {
+        Ticket[] tmp = new Ticket[current.length + 1];
 
         for (int i = 0; i < current.length; i++) {
             tmp[i] = current[i];
@@ -17,18 +19,18 @@ public class AviaSouls {
         return tmp;
     }
 
-    public void add(werv.Ticket ticket) {
+    public void add(Ticket ticket) {
         tickets = addToArray(tickets, ticket);
     }
 
-    public werv.Ticket[] findAll() {
+    public Ticket[] findAll() {
         return tickets;
     }
 
-    public werv.Ticket[] search(String from, String to) {
-        werv.Ticket[] result = new werv.Ticket[0];
+    public Ticket[] search(String from, String to) {
+        Ticket[] result = new Ticket[0];
 
-        for (werv.Ticket ticket : tickets) {
+        for (Ticket ticket : tickets) {
             if (ticket.getFrom().equals(from) && ticket.getTo().equals(to)) {
                 result = addToArray(result, ticket);
             }
@@ -38,10 +40,10 @@ public class AviaSouls {
         return result;
     }
 
-    public werv.Ticket[] searchAndSortBy(String from, String to, Comparator<werv.Ticket> comparator) {
-        werv.Ticket[] result = new werv.Ticket[0];
+    public Ticket[] searchAndSortBy(String from, String to, Comparator<Ticket> comparator) {
+        Ticket[] result = new Ticket[0];
 
-        for (werv.Ticket ticket : tickets) {
+        for (Ticket ticket : tickets) {
             if (ticket.getFrom().equals(from) && ticket.getTo().equals(to)) {
                 result = addToArray(result, ticket);
             }
